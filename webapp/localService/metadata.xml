@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZRET_RAINBOW_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Variant" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="variant_id"/>
+                </Key>
+                <Property Name="variant_id" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="title" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="VariantToData" Relationship="ZRET_RAINBOW_SRV.VariantToData" FromRole="FromRole_VariantToData" ToRole="ToRole_VariantToData"/>
+                <NavigationProperty Name="VariantToGroups" Relationship="ZRET_RAINBOW_SRV.VariantToGroups" FromRole="FromRole_VariantToGroups" ToRole="ToRole_VariantToGroups"/>
+                <NavigationProperty Name="VariantToGraphs" Relationship="ZRET_RAINBOW_SRV.VariantToGraphs" FromRole="FromRole_VariantToGraphs" ToRole="ToRole_VariantToGraphs"/>
+                <NavigationProperty Name="VariantToColumns" Relationship="ZRET_RAINBOW_SRV.VariantToColumns" FromRole="FromRole_VariantToColumns" ToRole="ToRole_VariantToColumns"/>
+            </EntityType>
+            <EntityType Name="Column" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="variant_id"/>
+                    <PropertyRef Name="name"/>
+                </Key>
+                <Property Name="variant_id" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="name" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="internal_name" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="kind" Type="Edm.String" Nullable="false" MaxLength="1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="text" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="visible" Type="Edm.Boolean" Nullable="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="edm_type" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="semantic" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="length" Type="Edm.Int16" Nullable="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="decimals" Type="Edm.Int16" Nullable="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="input_mask" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Graph" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="variant_id"/>
+                    <PropertyRef Name="graph_id"/>
+                </Key>
+                <Property Name="variant_id" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="graph_id" Type="Edm.Int16" Nullable="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="graph_type" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="title" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="short_text" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="x_column" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="group_column" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="y_column" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="aggr_func" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="show_init_vals" Type="Edm.Boolean" Nullable="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="value_label" Type="Edm.Boolean" Nullable="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="seq_no" Type="Edm.Int16" Nullable="false" sap:label="Signed INT2 / int16" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Group" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="variant_id"/>
+                    <PropertyRef Name="group_id"/>
+                </Key>
+                <Property Name="variant_id" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="group_id" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="parent" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="isleaf" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="title" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="number" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="number_unit" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <NavigationProperty Name="GroupToParent" Relationship="ZRET_RAINBOW_SRV.GroupToParent" FromRole="FromRole_GroupToParent" ToRole="ToRole_GroupToParent"/>
+                <NavigationProperty Name="GroupToChildren" Relationship="ZRET_RAINBOW_SRV.GroupToChildren" FromRole="FromRole_GroupToChildren" ToRole="ToRole_GroupToChildren"/>
+                <NavigationProperty Name="GroupToData" Relationship="ZRET_RAINBOW_SRV.GroupToData" FromRole="FromRole_GroupToData" ToRole="ToRole_GroupToData"/>
+            </EntityType>
+            <EntityType Name="DataRecord" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="variant_id"/>
+                    <PropertyRef Name="row_id"/>
+                </Key>
+                <Property Name="variant_id" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="row_id" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="key" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col01" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col02" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col03" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col04" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col05" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col06" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col07" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col08" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col09" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col10" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col11" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col12" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col13" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col14" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col15" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col16" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col17" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col18" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col19" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col20" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col21" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col22" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col23" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col24" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col25" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col26" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col27" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col28" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col29" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="col30" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="VariantToGraphs" sap:content-version="1">
+                <End Type="ZRET_RAINBOW_SRV.Variant" Multiplicity="1" Role="FromRole_VariantToGraphs"/>
+                <End Type="ZRET_RAINBOW_SRV.Graph" Multiplicity="*" Role="ToRole_VariantToGraphs"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_VariantToGraphs">
+                        <PropertyRef Name="variant_id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_VariantToGraphs">
+                        <PropertyRef Name="variant_id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="VariantToGroups" sap:content-version="1">
+                <End Type="ZRET_RAINBOW_SRV.Variant" Multiplicity="1" Role="FromRole_VariantToGroups"/>
+                <End Type="ZRET_RAINBOW_SRV.Group" Multiplicity="*" Role="ToRole_VariantToGroups"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_VariantToGroups">
+                        <PropertyRef Name="variant_id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_VariantToGroups">
+                        <PropertyRef Name="variant_id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="VariantToData" sap:content-version="1">
+                <End Type="ZRET_RAINBOW_SRV.Variant" Multiplicity="1" Role="FromRole_VariantToData"/>
+                <End Type="ZRET_RAINBOW_SRV.DataRecord" Multiplicity="*" Role="ToRole_VariantToData"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_VariantToData">
+                        <PropertyRef Name="variant_id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_VariantToData">
+                        <PropertyRef Name="variant_id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="VariantToColumns" sap:content-version="1">
+                <End Type="ZRET_RAINBOW_SRV.Variant" Multiplicity="1" Role="FromRole_VariantToColumns"/>
+                <End Type="ZRET_RAINBOW_SRV.Column" Multiplicity="*" Role="ToRole_VariantToColumns"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_VariantToColumns">
+                        <PropertyRef Name="variant_id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_VariantToColumns">
+                        <PropertyRef Name="variant_id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="GroupToParent" sap:content-version="1">
+                <End Type="ZRET_RAINBOW_SRV.Group" Multiplicity="1" Role="FromRole_GroupToParent"/>
+                <End Type="ZRET_RAINBOW_SRV.Group" Multiplicity="0..1" Role="ToRole_GroupToParent"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_GroupToParent">
+                        <PropertyRef Name="variant_id"/>
+                        <PropertyRef Name="group_id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_GroupToParent">
+                        <PropertyRef Name="variant_id"/>
+                        <PropertyRef Name="parent"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="GroupToChildren" sap:content-version="1">
+                <End Type="ZRET_RAINBOW_SRV.Group" Multiplicity="1" Role="FromRole_GroupToChildren"/>
+                <End Type="ZRET_RAINBOW_SRV.Group" Multiplicity="*" Role="ToRole_GroupToChildren"/>
+            </Association>
+            <Association Name="GroupToData" sap:content-version="1">
+                <End Type="ZRET_RAINBOW_SRV.Group" Multiplicity="1" Role="FromRole_GroupToData"/>
+                <End Type="ZRET_RAINBOW_SRV.DataRecord" Multiplicity="*" Role="ToRole_GroupToData"/>
+            </Association>
+            <EntityContainer Name="ZRET_RAINBOW_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="Variants" EntityType="ZRET_RAINBOW_SRV.Variant" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="Columns" EntityType="ZRET_RAINBOW_SRV.Column" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="Graphs" EntityType="ZRET_RAINBOW_SRV.Graph" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="Groups" EntityType="ZRET_RAINBOW_SRV.Group" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="DataRecords" EntityType="ZRET_RAINBOW_SRV.DataRecord" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="VariantToColumnsSet" Association="ZRET_RAINBOW_SRV.VariantToColumns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Variants" Role="FromRole_VariantToColumns"/>
+                    <End EntitySet="Columns" Role="ToRole_VariantToColumns"/>
+                </AssociationSet>
+                <AssociationSet Name="GroupToChildrenSet" Association="ZRET_RAINBOW_SRV.GroupToChildren" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Groups" Role="FromRole_GroupToChildren"/>
+                    <End EntitySet="Groups" Role="ToRole_GroupToChildren"/>
+                </AssociationSet>
+                <AssociationSet Name="VariantToGraphsSet" Association="ZRET_RAINBOW_SRV.VariantToGraphs" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Variants" Role="FromRole_VariantToGraphs"/>
+                    <End EntitySet="Graphs" Role="ToRole_VariantToGraphs"/>
+                </AssociationSet>
+                <AssociationSet Name="VariantToGroupsSet" Association="ZRET_RAINBOW_SRV.VariantToGroups" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Variants" Role="FromRole_VariantToGroups"/>
+                    <End EntitySet="Groups" Role="ToRole_VariantToGroups"/>
+                </AssociationSet>
+                <AssociationSet Name="GroupToDataSet" Association="ZRET_RAINBOW_SRV.GroupToData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Groups" Role="FromRole_GroupToData"/>
+                    <End EntitySet="DataRecords" Role="ToRole_GroupToData"/>
+                </AssociationSet>
+                <AssociationSet Name="GroupToParentSet" Association="ZRET_RAINBOW_SRV.GroupToParent" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Groups" Role="FromRole_GroupToParent"/>
+                    <End EntitySet="Groups" Role="ToRole_GroupToParent"/>
+                </AssociationSet>
+                <AssociationSet Name="VariantToDataSet" Association="ZRET_RAINBOW_SRV.VariantToData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Variants" Role="FromRole_VariantToData"/>
+                    <End EntitySet="DataRecords" Role="ToRole_VariantToData"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="https://hsap17.surpass.co.il:5226/sap/opu/odata/sap/ZRET_RAINBOW_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://hsap17.surpass.co.il:5226/sap/opu/odata/sap/ZRET_RAINBOW_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

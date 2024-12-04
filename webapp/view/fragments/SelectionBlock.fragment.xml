@@ -1,0 +1,18 @@
+<core:FragmentDefinition 
+        xmlns="sap.m" 
+        xmlns:fb="sap.ui.comp.filterbar" 
+        xmlns:screen="dps.screen" 
+        xmlns:core="sap.ui.core">
+    <IconTabBar headerMode="Inline" 
+		visible="{= ${insightSelModel>/enabled} === 'true' || ${insightModel>/metadata/variables}.length > 0 }" 
+			class="sapUiResponsiveContentPadding">
+		<items>
+			<IconTabFilter visible="{= ${insightSelModel>/enabled } === 'true'}" icon="sap-icon://multiselect-all" key="SelectionScreen" text="Selection screen">
+				<core:Fragment fragmentName="insightzaptiles.view.fragments.SelectionScreen" type="XML" />					
+			</IconTabFilter>
+			<IconTabFilter visible="{= ${insightModel>/metadata/variables}.length > 0}" icon="sap-icon://journey-change" key="Variables" text="Variables">
+				<core:Fragment fragmentName="insightzaptiles.view.fragments.Variables" type="XML" />
+			</IconTabFilter>				
+		</items>
+		</IconTabBar>
+</core:FragmentDefinition>

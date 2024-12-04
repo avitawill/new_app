@@ -1,0 +1,37 @@
+<mvc:View controllerName="insightzaptiles.controller.MainTable"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:semantic="sap.f.semantic">
+
+    <!-- <Page showNavButton="true" navButtonPress="_onNavBack" id="tablePage" title="{insightModel>/metadata/title}"> -->
+<!-- <semantic:SemanticPage fitContent="true" showNavButton="true" navButtonPress="_onNavBack" id="tablePage" >
+    <semantic:headerContent>        
+     <Button text="Personalize Table" press=".onOpenPersonalization" />
+    </semantic:headerContent>
+    </semantic:SemanticPage> -->
+    <!-- </Page> -->
+    <f:DynamicPage id="tablePage" fitContent="true">
+        <f:title>
+            <f:DynamicPageTitle>
+                <!-- <f:snappedContent>
+					<Label text="This is a subheading"/>
+                </f:snappedContent> -->
+            	<f:actions>
+				    <ToolbarSpacer/>
+                    <Button icon="sap-icon://action-settings" 
+                        tooltip="Personalize Table" press=".onOpenPersonalization" />
+        	    </f:actions>
+            </f:DynamicPageTitle>
+		</f:title>
+        <f:header>
+            <f:DynamicPageHeader pinnable="true" >
+                <core:Fragment fragmentName="insightzaptiles.view.fragments.SelectionBlock" type="XML" />
+            </f:DynamicPageHeader>
+        </f:header>
+    </f:DynamicPage>
+
+</mvc:View>

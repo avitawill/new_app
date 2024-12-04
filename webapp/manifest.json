@@ -1,0 +1,186 @@
+{
+  "_version": "1.17.0",
+  "sap.app": {
+    "id": "insightzaptiles",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.15.2",
+      "toolsId": "9776262c-e5f2-499a-9539-1f88781c030f"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZRET_RAINBOW_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "appSettings": {
+        "uri": "./model/appSettings.json",
+        "type": "JSON"
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.71.70",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "dps.screen": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "insightzaptiles.i18n.i18n"
+        }
+      },
+      "appSettings": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "appSettings"
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "insightzaptiles.view",
+        "controlAggregation": "pages",
+        "controlId": "pageContainer",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "Main",
+          "pattern": "{variant}",
+          "target": [
+            "Main"
+          ]
+        },
+        {
+          "name": "Main",
+          "pattern": "{variant}/Dashboard",
+          "target": [
+            "Main"
+          ]
+        },
+        {
+          "name": "MainTable",
+          "pattern": "{variant}/MainTable",
+          "target": [
+            "MainTable"
+          ]
+        },
+        {
+          "name": "PivotTable",
+          "pattern": "{variant}/PivotTable",
+          "target": [
+            "PivotTable"
+          ]
+        },
+        {
+          "name": "Charts",
+          "pattern": "{variant}/Charts",
+          "target": [
+            "Charts"
+          ]
+        },
+        {
+          "name": "AboutUs",
+          "pattern": "AboutUs",
+          "target": [
+            "AboutUs"
+          ]
+        }
+      ],
+      "targets": {
+        "Main": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Main",
+          "viewName": "Main"
+        },
+        "MainTable": {
+          "viewType": "XML",
+          "transition": "slide",
+          "level": 2,
+          "clearControlAggregation": false,
+          "viewName": "MainTable"
+        },
+        "PivotTable": {
+          "viewType": "XML",
+          "transition": "slide",
+          "level": 2,
+          "clearControlAggregation": false,
+          "viewName": "PivotTable"
+        },
+        "Charts": {
+          "viewType": "XML",
+          "transition": "slide",
+          "level": 2,
+          "clearControlAggregation": false,
+          "viewName": "Charts"
+        },
+        "AboutUs": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewName": "AboutUs"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "insightzaptiles.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<core:FragmentDefinition 
+        xmlns="sap.m" 
+        xmlns:fb="sap.ui.comp.filterbar" 
+        xmlns:screen="dps.screen" 
+        xmlns:core="sap.ui.core">
+    <fb:FilterBar id="filterbar" persistencyKey="myPersKey" 
+        useToolbar="false" search=".onSearch" 
+        filterChange=".onFilterChange" 
+        filterGroupItems="{insightSelModel>/selinfo}" 
+        afterVariantLoad=".onAfterVariantLoad">
+            <fb:filterGroupItems>
+            <fb:FilterGroupItem name="{insightSelModel>name}" label="{insightSelModel>text}"
+                visibleInFilterBar="true" groupName="__$INTERNAL$">
+                <fb:control>
+                        <!-- label="{insightSelModel>text}" -->
+                    <screen:SelectionScreenItem 
+                        id="SelectionScreenItem"
+                        internalId="{insightSelModel>name}"
+                        fieldKind="{insightSelModel>kind}"
+                        fieldType="{insightSelModel>edmType}"
+                        displayFormat="{insightSelModel>displayFormat}"
+                        convexit="{insightSelModel>convexit}"
+                        showValueHelp="{insightSelModel>f4avail}"
+                        obligatory= "{insightSelModel>obligatory}"
+                        decimals="{insightSelModel>decimals}"
+                        charLength="{insightSelModel>outputLength}"
+                        
+                        tabName="{insightSelModel>tabfield/tabname}"
+                        fieldName="{insightSelModel>tabfield/fieldname}"
+                        rollName="{insightSelModel>rollname}"
+                        valueHelpName="{insightSelModel>matchcode}"
+                        noSign="{insightSelModel>noSign}"
+                        protected="{insightSelModel>protected}"
+                        visible="{insightSelModel>visible}"
+                        semantic="{insightSelModel>semantic}"          
+                        inputMask="{insightSelModel>inputMask}">
+
+                    </screen:SelectionScreenItem>
+                </fb:control>
+            </fb:FilterGroupItem>			
+        </fb:filterGroupItems>
+    </fb:FilterBar>
+</core:FragmentDefinition>

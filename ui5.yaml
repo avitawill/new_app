@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: insightzaptiles
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ui5:  
+          paths:            
+            - path: resources
+              url: https://sapui5.hana.ondemand.com
+              version: 1.71.70
+            - path: resources/dps/screen
+              url: sap/bc/ui5_ui5/dps/screen
+              directLoad: true
+        backend:
+          - path: /sap
+            url: https://hsap17.surpass.co.il:5226
+            client: "001"
+          - path: /dps
+            url: https://hsap17.surpass.co.il:5226
+            client: "001"
+          - path: /dps/ret/variants
+            url: https://hsap17.surpass.co.il:5226
+            client: "001"
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: insightzaptiles
+        ui5Theme: sap_horizon_dark

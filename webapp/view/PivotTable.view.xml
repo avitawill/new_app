@@ -1,0 +1,52 @@
+<mvc:View controllerName="insightzaptiles.controller.PivotTable"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    xmlns="sap.m">
+
+    <Page showNavButton="true" 
+            id="pivotTable" >
+        <l:Splitter height="100%" orientation="Vertical">
+		<l:Splitter>
+			<l:layoutData>
+				<l:SplitterLayoutData size="50%" />
+			</l:layoutData>
+			<l:contentAreas>
+				<!-- <Button width="100%" text="Content 1"> -->
+				<VBox id="PivotTableData">
+
+					<layoutData>
+						<l:SplitterLayoutData size="auto" />
+					</layoutData>
+				</VBox>
+				<!-- </Button> -->
+			</l:contentAreas>
+		</l:Splitter>
+		<l:Splitter>
+			<l:layoutData>
+				<l:SplitterLayoutData size="auto" />
+			</l:layoutData>
+			<l:contentAreas>
+            <VBox id="PivotTableFields">
+                <core:Fragment id="PivotTableFields" fragmentName="insightzaptiles.view.fragments.PivotTable.PivotTableFields" type="XML"/>
+                <layoutData>
+					<l:SplitterLayoutData size="30%" />
+				</layoutData>
+            </VBox>				              
+
+            <HBox id="PivotTableProperties">
+                <core:Fragment id="PivotTableRows" fragmentName="insightzaptiles.view.fragments.PivotTable.PivotTableRows" type="XML"/>
+                <core:Fragment id="PivotTableColumns" fragmentName="insightzaptiles.view.fragments.PivotTable.PivotTableColumns" type="XML"/>
+                <core:Fragment id="PivotTableValues" fragmentName="insightzaptiles.view.fragments.PivotTable.PivotTableValues" type="XML"/>
+                <!-- <core:Fragment id="PivotTableValues" fragmentName="insightzaptiles.view.fragments.PivotTable.PivotTableValues" type="XML"/> -->
+                <layoutData>
+					<l:SplitterLayoutData size="70%" />
+				</layoutData>
+            </HBox>			
+			</l:contentAreas>
+		</l:Splitter>
+	</l:Splitter>
+    </Page>
+</mvc:View>

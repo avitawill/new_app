@@ -1,0 +1,53 @@
+<mvc:View controllerName="insightzaptiles.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+	xmlns:control="insightzaptiles.control"
+    xmlns:card="sap.f.cards"
+	xmlns:w="sap.ui.integration.widgets"
+    xmlns:f="sap.f"
+	xmlns:screen="dps.screen"
+	xmlns:core="sap.ui.core"
+	xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:semantic="sap.f.semantic">
+    <semantic:SemanticPage id="page">
+    <semantic:headerContent>
+		<core:Fragment fragmentName="insightzaptiles.view.fragments.SelectionBlock" type="XML" />
+	<!-- <f:content> -->
+	<!-- <Page id="page" showHeader="false" title="{insightModel>/metadata/title}"> -->
+			<!-- <IconTabBar headerMode="Inline" id="idIconTabBar3" class="sapUiResponsiveContentPadding">
+			<items>
+				<IconTabFilter icon="sap-icon://multiselect-all" key="SelectionScreen" text="Selection screen">
+					<core:Fragment fragmentName="insightzaptiles.view.fragments.SelectionScreen" type="XML" />					
+				</IconTabFilter>
+				<IconTabFilter icon="sap-icon://journey-change" key="Variables" text="Variables">
+					<core:Fragment fragmentName="insightzaptiles.view.fragments.Variables" type="XML" />
+				</IconTabFilter>				
+			</items>
+		</IconTabBar> -->
+	<!-- </f:content> -->
+    </semantic:headerContent>
+        <!-- <f:content> -->
+			<ScrollContainer
+			height="100%"
+			width="100%"
+			vertical="true"
+			>
+			<f:GridContainer
+				id="grid1"
+				class="sapUiSmallMargin"
+				snapToRow="true">
+				<f:layout>
+					<f:GridContainerSettings rowSize="80px" columnSize="80px" gap="20px" />
+				</f:layout>
+				<f:layoutXS>
+					<f:GridContainerSettings rowSize="70px" columnSize="70px" gap="8px" />
+				</f:layoutXS>
+			</f:GridContainer>
+		</ScrollContainer>
+        <!-- </f:content> -->
+		<!-- </Page> -->
+    </semantic:SemanticPage>
+</mvc:View>

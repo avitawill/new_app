@@ -1,0 +1,36 @@
+<core:FragmentDefinition 
+        xmlns="sap.m" 
+        xmlns:dnd="sap.ui.core.dnd"
+        xmlns:core="sap.ui.core">
+    <Table
+        
+		id="PivotTableFieldsTable"
+		mode="SingleSelectMaster"
+		sticky="ColumnHeaders"
+		growing="true"
+		growingThreshold="10"
+		items="{PivotTableFields>/}">
+		<!-- beforeOpenContextMenu="onBeforeOpenContextMenu" -->
+		<!-- <header -->
+		<columns>
+			<Column>
+				<Text text="Field Name" />
+			</Column>			
+		</columns>
+		<dragDropConfig>
+			<dnd:DragInfo
+				groupName="Fields2Properties"
+				sourceAggregation="items" />
+			<dnd:DropInfo
+				groupName="selected2available"
+				drop="onDropAvailableProductsTable" />
+		</dragDropConfig>
+		<items>
+			<ColumnListItem stickyHeader="true">
+				<cells>
+					<Text text="{PivotTableFields>text}" wrapping="false" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

@@ -1,0 +1,44 @@
+<core:FragmentDefinition 
+        xmlns="sap.m" 
+        xmlns:fb="sap.ui.comp.filterbar" 
+        xmlns:screen="dps.screen" 
+        xmlns:core="sap.ui.core">
+    <fb:FilterBar id="variables" persistencyKey="myPersKey" 
+        useToolbar="false" search=".onSearch" 
+        filterChange=".onFilterChange" 
+        filterGroupItems="{insightModel>/metadata/variables/}" 
+        afterVariantLoad=".onAfterVariantLoad">
+            <fb:filterGroupItems>
+            <fb:FilterGroupItem name="{insightModel>name}" label="{insightModel>text}"
+                visibleInFilterBar="true" groupName="__$INTERNAL$">
+                <fb:control>
+                        <!-- label="{insightSelModel>text}" -->
+                    <screen:SelectionScreenItem id="VariablesSelectionScreenItem"
+					internalId="{insightModel>name}"
+					fieldName="{insightModel>name}"					
+					fieldType="{insightModel>edmType}"
+					displayFormat="{insightModel>displayFormat}"
+					convexit="{insightModel>convexit}"
+					showValueHelp="{insightModel>f4avail}"
+					rollName="{insightModel>rollname}"
+					decimals="{insightModel>decimals}"
+					charLength="{insightModel>outputLength}"
+					fieldKind="Parameter"
+					tabName="{insightModel>tabfieldTable}"
+					internalLength="{insightModel>length}"
+					noSign="{insightModel>noSign}"
+					protected="{= ${insightModel>edit} === true ? false : true }"
+					visible="{insightModel>visible}"
+					semantic="{insightModel>semantic}"
+					afterRenderingItem="onVariablesAfterRenderingItem"
+					valueChanged="onVariablesValueChange"
+					>
+                    <screen:values>
+						<screen:ValueItem low="{insightModel>value}" />
+					</screen:values>
+                    </screen:SelectionScreenItem>
+                </fb:control>
+            </fb:FilterGroupItem>			
+        </fb:filterGroupItems>
+    </fb:FilterBar>
+</core:FragmentDefinition>

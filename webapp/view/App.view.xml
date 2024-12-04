@@ -1,0 +1,79 @@
+<mvc:View controllerName="insightzaptiles.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:tnt="sap.tnt"
+	xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <App id="app">
+    	<tnt:ToolPage id="toolPage">            
+            <tnt:header>
+                <tnt:ToolHeader>
+                    <Button
+                        id="sideNavigationToggleButton"
+                        icon="sap-icon://menu2"
+                        type="Transparent"
+                        press=".onSideNavButtonPress">
+                        <layoutData>
+                            <OverflowToolbarLayoutData priority="NeverOverflow" />
+                        </layoutData>
+                    </Button>
+                    <Image height="1.5rem"
+					   class="sapUiSmallMarginBegin"
+					   src="https://d-pro.biz/wp-content/uploads/2019/01/logo100X29.d110a0.webp" />
+                    <!-- <ToolbarSpacer id="spacer">
+                        <layoutData>
+                            <OverflowToolbarLayoutData priority="Low" group="1"/>
+                        </layoutData>
+				    </ToolbarSpacer> -->
+				    <Title class="sapUiSmallMargin" level="H1" text="{insightModel>/metadata/title}" wrapping="false" id="productName">
+					    <layoutData>
+						    <OverflowToolbarLayoutData priority="Disappear"/>
+					    </layoutData>
+				    </Title>
+					<Select
+						xmlns:m="sap.m"
+						change="onChangeTheme"
+						selectedKey="sap_fiori_3">
+						<items>
+							<core:Item key="sap_horizon" text="Morning Horizon" />
+							<core:Item key="sap_horizon_dark" text="Evening Horizon" />
+							<core:Item key="sap_horizon_hcb" text="High Contrast Black" />
+							<core:Item key="sap_horizon_hcw" text="High Contrast White" />
+						</items>
+					</Select>
+                </tnt:ToolHeader>
+            </tnt:header>
+        <tnt:sideContent>
+               <tnt:SideNavigation
+			   	id="sideNav"
+				expanded="true"
+				selectedKey="{appSettings>/selectedKey}"
+				itemSelect=".onItemSelect">
+				<tnt:NavigationList items="{path: 'appSettings>/navigation'}">
+					<tnt:NavigationListItem
+						text="{appSettings>title}"
+						icon="{appSettings>icon}"
+						enabled="{appSettings>enabled}"
+						expanded="{appSettings>expanded}"
+						items="{appSettings>items}"
+						key="{appSettings>key}">
+						<tnt:NavigationListItem
+							text="{appSettings>title}"
+							key="{appSettings>key}"
+							enabled="{appSettings>enabled}" />
+					</tnt:NavigationListItem>
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList items="{path: 'appSettings>/fixedNavigation'}">
+						<tnt:NavigationListItem text="{appSettings>title}" key="{appSettings>key}" icon="{appSettings>icon}" />
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+            <NavContainer navigate="onPageNavigation" id="pageContainer">
+            </NavContainer>
+        </tnt:mainContents>
+    </tnt:ToolPage>
+    </App>
+</mvc:View>

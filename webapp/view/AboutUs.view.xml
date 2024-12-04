@@ -1,0 +1,13 @@
+<mvc:View controllerName="insightzaptiles.controller.AboutUs"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:semantic="sap.f.semantic">
+
+    <semantic:SemanticPage id="AboutUs">
+        <semantic:headerContent>        
+        </semantic:headerContent>
+        <Text text="This is all about us - and you!"/>
+    </semantic:SemanticPage>
+    <!-- </Page> -->
+</mvc:View>

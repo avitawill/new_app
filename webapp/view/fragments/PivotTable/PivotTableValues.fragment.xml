@@ -1,0 +1,55 @@
+<core:FragmentDefinition 
+        xmlns="sap.m" 
+        xmlns:dnd="sap.ui.core.dnd"
+        xmlns:core="sap.ui.core">
+    <Table
+        
+		id="PivotTableValuesTable"
+		mode="SingleSelectMaster"
+		growing="true"
+		growingThreshold="10"
+		items="{PivotTableValues>/}">
+		<!-- beforeOpenContextMenu="onBeforeOpenContextMenu" -->
+		<columns>
+			<Column>
+				<Text text="Values" />
+			</Column>			
+			<Column width="40%">
+				<!-- <Text text="Columns" /> -->
+			</Column>
+			<Column width="30%">
+				<!-- <Text text="Columns" /> -->
+			</Column>
+		</columns>
+		<dragDropConfig>
+			<dnd:DragInfo
+				groupName="available2selected"
+				sourceAggregation="items" />
+			<dnd:DropInfo
+				groupName="Fields2Properties"
+				drop="onDropToPropertiesTable" />
+		</dragDropConfig>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{PivotTableValues>text}" 
+						
+						wrapping="true" autoAdjustWidth="true"/>
+					<Select selectedKey="{PivotTableValues>aggregationType}" change="onChangeAggType">
+						<core:Item key="count" text="Count" />
+						<core:Item key="sum" text="Sum" />
+						<core:Item key="average" text="average" />
+						<core:Item key="min" text="Min" />
+						<core:Item key="max" text="Max" />
+					</Select>
+					<Button icon="sap-icon://decline" press="onPressDeletePivotProperty">
+						<customData>
+							<core:CustomData key="key" value="{PivotTableValues>key}"/> 
+							<core:CustomData key="model" value="PivotTableValues"/> 
+						</customData>
+					</Button>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

@@ -1,0 +1,43 @@
+<core:FragmentDefinition 
+        xmlns="sap.m" 
+        xmlns:dnd="sap.ui.core.dnd"
+        xmlns:core="sap.ui.core">
+    <Table
+        
+		id="PivotTableRowsTable"
+		mode="SingleSelectMaster"
+		growing="true"
+		growingThreshold="10"
+		items="{PivotTableRows>/}">
+		<!-- beforeOpenContextMenu="onBeforeOpenContextMenu" -->
+		<columns>
+			<Column>
+				<Text text="Rows" />
+			</Column>		
+			<Column width="30%">
+				<!-- <Text text="Columns" /> -->
+			</Column>	
+		</columns>
+		<dragDropConfig>
+			<dnd:DragInfo
+				groupName="available2selected"
+				sourceAggregation="items" />
+			<dnd:DropInfo
+				groupName="Fields2Properties"
+				drop="onDropToPropertiesTable" />
+		</dragDropConfig>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{PivotTableRows>text}" wrapping="false" />
+					<Button icon="sap-icon://decline" press="onPressDeletePivotProperty">
+						<customData>
+							<core:CustomData key="key" value="{PivotTableRows>key}"/> 
+							<core:CustomData key="model" value="PivotTableRows"/> 
+						</customData>
+					</Button>					
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

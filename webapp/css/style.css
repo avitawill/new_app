@@ -1,0 +1,111 @@
+/* .right_panel {
+    position: absolute;
+    width: 96px;
+    padding-left: 4px;
+    height: 100%;
+    right: 0;
+    background-color: #f0f0ff;
+}
+
+.right_panel::after {
+    content: '';
+    background-color: #ccc;
+    position: absolute;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    cursor: ew-resize;
+} */
+
+.sapMeCardBase.sapMeCardResizable:after {
+    align-self: flex-end;
+    background: radial-gradient(at right bottom, transparent 0, color-mix(in srgb, #4db1ff, #1d232a 20%) 20%, transparent 70%, transparent 100%);
+    content: "";
+    height: .8rem;
+    opacity: 0;
+    width: .8rem;
+    transition: opacity .3s ease-in-out;
+    cursor: e-resize
+}
+
+.sapMeCardBase.sapMeCardResizable:hover,.sapMeCardBase.sapMeCardResizable:active {
+    overflow: hidden;
+    resize: horizontal
+}
+
+.sapMeCardBase.sapMeCardResizable:hover:after {
+    opacity: 1
+}
+
+.sapMeCardBase.sapMeCardResizable:active {
+    z-index: 3
+}
+
+
+.sapFCardHeader.sapMeCardHeader {
+    align-items: center;
+    padding: 0.75rem;
+    border-bottom-color: #101418
+}
+
+.sapFCardHeader.sapMeCardHeader .sapMBtn:not(:active) .sapMBtnInner {
+    box-shadow: 0 .0625rem 0 0 #101418
+}
+
+.sapFCardHeader.sapMeCardHeader .sapMBtn:not(:active) .sapMBtnInner:not(.sapMBtnEmphasized):not(.sapMBtnTransparent):not(.sapMToggleBtnPressed),.sapFCardHeader.sapMeCardHeader .sapMBtn:not(:active) .sapMBtnInner:not(.sapMBtnEmphasized):not(.sapMBtnTransparent):not(.sapMToggleBtnPressed):hover {
+    border: solid .0625rem #222b35
+}
+
+.sapFCardHeader.sapMeCardHeader .sapMBtnIcon {
+    color: #eaecee
+}
+
+.sapFCardHeader.sapMeCardHeader .sapMeCardHeaderItemRight {
+    margin-left: 16px
+}
+
+.sapFCardHeader.sapMeCardHeader .sapMeCardHeaderItemLeft {
+    margin-right: 16px
+}
+
+.sapFCardHeader.sapMeCardHeader.sapMeCardResponsiveHeader {
+    padding: .375rem .5rem .375rem .5rem
+}
+
+.sapFCardHeader.sapMeCardHeader>.sapMOTB {
+    padding: 0
+}
+
+.sapFCardHeader.sapMeCardHeader .sapMeCardHeaderMenuButton button {
+    background: transparent;
+    border: none;
+    padding-right: 0.5rem
+}
+
+.sapFCardHeader.sapMeCardHeader .sapMeCardHeaderMenuButton button:focus {
+    outline: .0625rem dotted #9ad3ff;
+    outline-offset: -0.125rem
+}
+
+.sapFCardHeader.sapMeCardHeader .sapMeCardHeaderMenuButton .sapMBtnIcon {
+    color: #4db1ff;
+    font-size: 1rem;
+    margin-right: 0px;
+    margin-left: 0px;
+    min-width: 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 0 0 0 #a9b4be
+}
+
+.sapFCardHeader.sapMeCardHeader .sapMeCardHeaderMenuButton .sapMBtnIcon:hover {
+    cursor: pointer;
+    border-style: solid;
+    border-width: 0px;
+    position: relative;
+    justify-content: center;
+    color: #4db1ff;
+    background-color: #1d232a;
+    border-color: #1d232a;
+    box-shadow: 0 0 .125rem 0 rgba(169,180,190,0.72);
+    border-radius: .5rem
+}
